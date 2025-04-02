@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Server;
 
@@ -12,9 +13,9 @@ internal class DefaultProgressBar : IProgressBar
 {
     private readonly ConsoleContext _context;
 
-    private readonly string _progressBarId;
-
     private readonly int _digits;
+
+    private readonly string _progressBarId;
 
     private string? _color;
 
@@ -57,9 +58,11 @@ internal class DefaultProgressBar : IProgressBar
             return;
         }
 
-        _context.AddLine(new ConsoleLine { Message = _progressBarId, ProgressName = _name, ProgressValue = value, TextColor = _color });
+        _context.AddLine(
+            new ConsoleLine
+                { Message = _progressBarId, ProgressName = _name, ProgressValue = value, TextColor = _color });
 
-        _name = null; // write name only once
+        _name = null;  // write name only once
         _color = null; // write color only once
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Hangfire.Common;
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Storage;
@@ -48,6 +49,7 @@ internal class ProcessingStateRenderer
         builder.Append("</dl>");
 
         var page = helper.GetPage();
+
         if (!page.RequestPath.StartsWith("/jobs/details/"))
         {
             return new NonEscapedString(builder.ToString());

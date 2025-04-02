@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading;
+
 using Hangfire.Console.Progress;
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Storage;
@@ -76,13 +77,21 @@ internal class ConsoleContext
         AddLine(new ConsoleLine { Message = value ?? "", TextColor = color ?? TextColor });
     }
 
-    public IProgressBar WriteProgressBar(string? name, double value, ConsoleTextColor? color) => WriteProgressBar(name, value, color, precision: 0);
+    public IProgressBar WriteProgressBar(string? name, double value, ConsoleTextColor? color)
+    {
+        return WriteProgressBar(name, value, color, 0);
+    }
 
     public IProgressBar WriteProgressBar(string? name, double value, ConsoleTextColor? color, int precision)
     {
         var progressBarId = Interlocked.Increment(ref _nextProgressBarId);
 
-        var progressBar = new DefaultProgressBar(this, progressBarId.ToString(CultureInfo.InvariantCulture), name, color, precision);
+        var progressBar = new DefaultProgressBar(
+            this,
+            progressBarId.ToString(CultureInfo.InvariantCulture),
+            name,
+            color,
+            precision);
 
         // set initial value
         progressBar.SetValue(value);
@@ -98,6 +107,7 @@ internal class ConsoleContext
     public void FixExpiration()
     {
         var ttl = _storage.GetConsoleTtl(_consoleId);
+
         if (ttl <= TimeSpan.Zero)
         {
             // ConsoleApplyStateFilter not called yet, or current job state is not final.

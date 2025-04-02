@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+
 using Hangfire.Common;
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Storage;
@@ -27,6 +28,7 @@ internal class ConsoleApplyStateFilter : IApplyStateFilter
         }
 
         var jobDetails = context.Storage.GetMonitoringApi().JobDetails(context.BackgroundJob.Id);
+
         if (jobDetails == null || jobDetails.History == null)
         {
             // WTF?!
@@ -37,7 +39,9 @@ internal class ConsoleApplyStateFilter : IApplyStateFilter
 
         foreach (var state in jobDetails.History.Where(x => x.StateName == ProcessingState.StateName))
         {
-            var consoleId = new ConsoleId(context.BackgroundJob.Id, JobHelper.DeserializeDateTime(state.Data["StartedAt"]));
+            var consoleId = new ConsoleId(
+                context.BackgroundJob.Id,
+                JobHelper.DeserializeDateTime(state.Data["StartedAt"]));
 
             if (context.NewState.IsFinal)
             {
@@ -53,5 +57,7 @@ internal class ConsoleApplyStateFilter : IApplyStateFilter
         }
     }
 
-    public void OnStateUnapplied(ApplyStateContext context, IWriteOnlyTransaction transaction) { }
+    public void OnStateUnapplied(ApplyStateContext context, IWriteOnlyTransaction transaction)
+    {
+    }
 }

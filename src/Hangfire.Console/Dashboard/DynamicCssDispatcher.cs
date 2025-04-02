@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
+
 using Hangfire.Dashboard;
 
 namespace Hangfire.Console.Dashboard;
@@ -22,21 +23,31 @@ internal class DynamicCssDispatcher : IDashboardDispatcher
         var builder = new StringBuilder();
 
         builder.AppendLine(".console, .console .line-buffer {")
-            .Append("    background-color: ").Append(_options.BackgroundColor).AppendLine(";")
-            .Append("    color: ").Append(_options.TextColor).AppendLine(";")
-            .AppendLine("}");
+               .Append("    background-color: ")
+               .Append(_options.BackgroundColor)
+               .AppendLine(";")
+               .Append("    color: ")
+               .Append(_options.TextColor)
+               .AppendLine(";")
+               .AppendLine("}");
 
         builder.AppendLine(".console .line > span[data-moment-title] {")
-            .Append("    color: ").Append(_options.TimestampColor).AppendLine(";")
-            .AppendLine("}");
+               .Append("    color: ")
+               .Append(_options.TimestampColor)
+               .AppendLine(";")
+               .AppendLine("}");
 
         builder.AppendLine(".console .line > a, .console.line > a:visited, .console.line > a:hover {")
-            .Append("    color: ").Append(_options.TextColor).AppendLine(";")
-            .AppendLine("}");
+               .Append("    color: ")
+               .Append(_options.TextColor)
+               .AppendLine(";")
+               .AppendLine("}");
 
         builder.AppendLine(".console .line.pb > .pv:before {")
-            .Append("    color: ").Append(_options.BackgroundColor).AppendLine(";")
-            .AppendLine("}");
+               .Append("    color: ")
+               .Append(_options.BackgroundColor)
+               .AppendLine(";")
+               .AppendLine("}");
 
         return context.Response.WriteAsync(builder.ToString());
     }

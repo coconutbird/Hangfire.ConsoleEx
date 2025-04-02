@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Storage;
 using Hangfire.Storage;
@@ -53,6 +54,7 @@ internal class ConsoleApi : IConsoleApi
                         {
                             prev.Progress = entry.ProgressValue.Value;
                             prev.Color = entry.TextColor;
+
                             continue;
                         }
                     }

@@ -27,7 +27,10 @@ internal class ProgressEnumerable : IEnumerable
         _count = count;
     }
 
-    public IEnumerator GetEnumerator() => new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    public IEnumerator GetEnumerator()
+    {
+        return new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    }
 
     private class Enumerator : IEnumerator, IDisposable
     {
@@ -62,6 +65,7 @@ internal class ProgressEnumerable : IEnumerable
         public bool MoveNext()
         {
             var r = _enumerator.MoveNext();
+
             if (r)
             {
                 _index++;
@@ -110,9 +114,15 @@ internal class ProgressEnumerable<T> : IEnumerable<T>
         _count = count;
     }
 
-    public IEnumerator<T> GetEnumerator() => new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    public IEnumerator<T> GetEnumerator()
+    {
+        return new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    }
 
-    IEnumerator IEnumerable.GetEnumerator() => new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return new Enumerator(_enumerable.GetEnumerator(), _progressBar, _count);
+    }
 
     private class Enumerator : IEnumerator<T>
     {
@@ -149,6 +159,7 @@ internal class ProgressEnumerable<T> : IEnumerable<T>
         public bool MoveNext()
         {
             var r = _enumerator.MoveNext();
+
             if (r)
             {
                 _index++;

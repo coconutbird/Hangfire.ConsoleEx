@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Reflection;
+
 using Hangfire.Console.Dashboard;
 using Hangfire.Console.Server;
 using Hangfire.Console.States;
 using Hangfire.Dashboard;
 using Hangfire.Dashboard.Extensions;
 using Hangfire.States;
+
 using JetBrains.Annotations;
 
 namespace Hangfire.Console;
@@ -21,7 +23,9 @@ public static class GlobalConfigurationExtensions
     /// </summary>
     /// <param name="configuration">Global configuration</param>
     /// <param name="options">Options for console</param>
-    public static IGlobalConfiguration UseConsole(this IGlobalConfiguration configuration, ConsoleOptions? options = null)
+    public static IGlobalConfiguration UseConsole(
+        this IGlobalConfiguration configuration,
+        ConsoleOptions? options = null)
     {
         if (configuration == null)
         {
@@ -55,12 +59,18 @@ public static class GlobalConfigurationExtensions
         var assembly = typeof(ConsoleRenderer).GetTypeInfo().Assembly;
 
         var jsPath = DashboardRoutes.Routes.Contains("/js[0-9]+") ? "/js[0-9]+" : "/js[0-9]{3}";
-        DashboardRoutes.Routes.Append(jsPath, new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.resize.min.js"));
+        DashboardRoutes.Routes.Append(
+            jsPath,
+            new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.resize.min.js"));
         DashboardRoutes.Routes.Append(jsPath, new DynamicJsDispatcher(options));
-        DashboardRoutes.Routes.Append(jsPath, new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.script.js"));
+        DashboardRoutes.Routes.Append(
+            jsPath,
+            new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.script.js"));
 
         var cssPath = DashboardRoutes.Routes.Contains("/css[0-9]+") ? "/css[0-9]+" : "/css[0-9]{3}";
-        DashboardRoutes.Routes.Append(cssPath, new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.style.css"));
+        DashboardRoutes.Routes.Append(
+            cssPath,
+            new EmbeddedResourceDispatcher(assembly, "Hangfire.Console.Resources.style.css"));
         DashboardRoutes.Routes.Append(cssPath, new DynamicCssDispatcher(options));
 
         return configuration;

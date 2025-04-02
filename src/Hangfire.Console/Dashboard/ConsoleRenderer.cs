@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+
 using Hangfire.Common;
 using Hangfire.Console.Serialization;
 using Hangfire.Console.Storage;
@@ -20,7 +21,8 @@ internal static class ConsoleRenderer
     private static readonly HtmlHelper Helper = new(new DummyPage());
 
     // Reference: http://www.regexguru.com/2008/11/detecting-urls-in-a-block-of-text/
-    private static readonly Regex LinkDetector = new(@"
+    private static readonly Regex LinkDetector = new(
+        @"
             \b(?:(?<schema>(?:f|ht)tps?://)|www\.|ftp\.)
               (?:\([-\w+&@#/%=~|$?!:,.]*\)|[-\w+&@#/%=~|$?!:,.])*
               (?:\([-\w+&@#/%=~|$?!:,.]*\)|[\w+&@#/%=~|$])",
@@ -48,6 +50,7 @@ internal static class ConsoleRenderer
             }
 
             var schema = "";
+
             if (!m.Groups["schema"].Success)
             {
                 // force schema for links without one (like www.google.com)
@@ -55,9 +58,11 @@ internal static class ConsoleRenderer
             }
 
             buffer.Append("<a target=\"_blank\" rel=\"nofollow\" href=\"")
-                .Append(schema).Append(m.Value).Append("\">")
-                .Append(Helper.HtmlEncode(m.Value))
-                .Append("</a>");
+                  .Append(schema)
+                  .Append(m.Value)
+                  .Append("\">")
+                  .Append(Helper.HtmlEncode(m.Value))
+                  .Append("</a>");
 
             start = m.Index + m.Length;
         }
@@ -104,7 +109,10 @@ internal static class ConsoleRenderer
 
         if (isProgressBar)
         {
-            builder.AppendFormat(CultureInfo.InvariantCulture, "<div class=\"pv\" style=\"width:{0:0.#}%\" data-value=\"{0:f0}\"></div>", line.ProgressValue!.Value);
+            builder.AppendFormat(
+                CultureInfo.InvariantCulture,
+                "<div class=\"pv\" style=\"width:{0:0.#}%\" data-value=\"{0:f0}\"></div>",
+                line.ProgressValue!.Value);
         }
         else
         {
@@ -207,6 +215,7 @@ internal static class ConsoleRenderer
                         {
                             prev.ProgressValue = entry.ProgressValue;
                             prev.TextColor = entry.TextColor;
+
                             continue;
                         }
                     }
@@ -227,6 +236,7 @@ internal static class ConsoleRenderer
             // no new items or initial load, check if the job is still performing
 
             var state = storage.GetState(consoleId);
+
             if (state == null)
             {
                 // No state found for a job, probably it was deleted
@@ -234,8 +244,9 @@ internal static class ConsoleRenderer
             }
             else
             {
-                if (!string.Equals(state.Name, ProcessingState.StateName, StringComparison.OrdinalIgnoreCase) ||
-                    !consoleId.Equals(new ConsoleId(consoleId.JobId, JobHelper.DeserializeDateTime(state.Data["StartedAt"]))))
+                if (!string.Equals(state.Name, ProcessingState.StateName, StringComparison.OrdinalIgnoreCase)
+                    || !consoleId.Equals(
+                        new ConsoleId(consoleId.JobId, JobHelper.DeserializeDateTime(state.Data["StartedAt"]))))
                 {
                     // Job state has changed (either not Processing, or another Processing with different console id)
                     count = -1;
@@ -244,11 +255,14 @@ internal static class ConsoleRenderer
         }
 
         start = count;
+
         return result;
     }
 
     private class DummyPage : RazorPage
     {
-        public override void Execute() { }
+        public override void Execute()
+        {
+        }
     }
 }

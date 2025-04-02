@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Hangfire.Console.Serialization;
 using Hangfire.Storage;
 

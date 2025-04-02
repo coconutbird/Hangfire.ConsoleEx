@@ -1,5 +1,7 @@
 ﻿using System;
+
 using Hangfire.Console.Serialization;
+
 using JetBrains.Annotations;
 
 namespace Hangfire.Console.Monitoring;

@@ -12,21 +12,8 @@ namespace Hangfire.Dashboard.Extensions;
 internal static class RouteCollectionExtensions
 {
     // ReSharper disable once InconsistentNaming
-    private static readonly FieldInfo _dispatchers = typeof(RouteCollection).GetTypeInfo().GetDeclaredField(nameof(_dispatchers));
-
-    /// <summary>
-    ///     Returns a private list of registered routes.
-    /// </summary>
-    /// <param name="routes">Route collection</param>
-    private static List<Tuple<string, IDashboardDispatcher>> GetDispatchers(this RouteCollection routes)
-    {
-        if (routes == null)
-        {
-            throw new ArgumentNullException(nameof(routes));
-        }
-
-        return (List<Tuple<string, IDashboardDispatcher>>)_dispatchers.GetValue(routes);
-    }
+    private static readonly FieldInfo _dispatchers =
+        typeof(RouteCollection).GetTypeInfo().GetDeclaredField(nameof(_dispatchers));
 
     /// <summary>
     ///     Checks if there's a dispatcher registered for given <paramref name="pathTemplate" />.
@@ -77,6 +64,7 @@ internal static class RouteCollectionExtensions
         for (var i = 0; i < list.Count; i++)
         {
             var pair = list[i];
+
             if (pair.Item1 == pathTemplate)
             {
                 if (!(pair.Item2 is CompositeDispatcher composite))
@@ -87,6 +75,7 @@ internal static class RouteCollectionExtensions
                 }
 
                 composite.AddDispatcher(dispatcher);
+
                 return;
             }
         }
@@ -123,9 +112,11 @@ internal static class RouteCollectionExtensions
         for (var i = 0; i < list.Count; i++)
         {
             var pair = list[i];
+
             if (pair.Item1 == pathTemplate)
             {
                 list[i] = new Tuple<string, IDashboardDispatcher>(pair.Item1, dispatcher);
+
                 return;
             }
         }
@@ -155,11 +146,27 @@ internal static class RouteCollectionExtensions
         for (var i = 0; i < list.Count; i++)
         {
             var pair = list[i];
+
             if (pair.Item1 == pathTemplate)
             {
                 list.RemoveAt(i);
+
                 return;
             }
         }
+    }
+
+    /// <summary>
+    ///     Returns a private list of registered routes.
+    /// </summary>
+    /// <param name="routes">Route collection</param>
+    private static List<Tuple<string, IDashboardDispatcher>> GetDispatchers(this RouteCollection routes)
+    {
+        if (routes == null)
+        {
+            throw new ArgumentNullException(nameof(routes));
+        }
+
+        return (List<Tuple<string, IDashboardDispatcher>>)_dispatchers.GetValue(routes);
     }
 }

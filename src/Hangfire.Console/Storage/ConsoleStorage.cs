@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+
 using Hangfire.Common;
 using Hangfire.Console.Serialization;
 using Hangfire.Storage;
@@ -50,7 +51,9 @@ internal class ConsoleStorage : IConsoleStorage
             throw new NotSupportedException("Storage tranactions must implement JobStorageTransaction");
         }
 
-        transaction.SetRangeInHash(consoleId.GetHashKey(), new[] { new KeyValuePair<string, string>("jobId", consoleId.JobId) });
+        transaction.SetRangeInHash(
+            consoleId.GetHashKey(),
+            new[] { new KeyValuePair<string, string>("jobId", consoleId.JobId) });
 
         transaction.Commit();
     }
@@ -99,7 +102,9 @@ internal class ConsoleStorage : IConsoleStorage
         {
             var referenceKey = Guid.NewGuid().ToString("N");
 
-            tran.SetRangeInHash(consoleId.GetHashKey(), new[] { new KeyValuePair<string, string>(referenceKey, line.Message) });
+            tran.SetRangeInHash(
+                consoleId.GetHashKey(),
+                new[] { new KeyValuePair<string, string>(referenceKey, line.Message) });
 
             line.Message = referenceKey;
             line.IsReference = true;
@@ -113,7 +118,9 @@ internal class ConsoleStorage : IConsoleStorage
         {
             var progress = line.ProgressValue.Value.ToString(CultureInfo.InvariantCulture);
 
-            tran.SetRangeInHash(consoleId.GetHashKey(), new[] { new KeyValuePair<string, string>("progress", progress) });
+            tran.SetRangeInHash(
+                consoleId.GetHashKey(),
+                new[] { new KeyValuePair<string, string>("progress", progress) });
         }
 
         tran.Commit();
@@ -230,6 +237,7 @@ internal class ConsoleStorage : IConsoleStorage
         }
 
         var progress = _connection.GetValueFromHash(consoleId.GetHashKey(), "progress");
+
         if (string.IsNullOrEmpty(progress))
         {
             // progress value is not set

@@ -94,11 +94,13 @@ internal class ConsoleId : IEquatable<ConsoleId>
         // Timestamp is serialized in reverse order for better randomness!
 
         long timestamp = 0;
+
         for (var i = 10; i >= 0; i--)
         {
             var c = value[i] | 0x20;
 
             var x = c is >= '0' and <= '9' ? c - '0' : c is >= 'a' and <= 'f' ? c - 'a' + 10 : -1;
+
             if (x == -1)
             {
                 throw new ArgumentException("Invalid value", nameof(value));
@@ -118,6 +120,7 @@ internal class ConsoleId : IEquatable<ConsoleId>
             var buffer = new char[11 + JobId.Length];
 
             var timestamp = Timestamp;
+
             for (var i = 0; i < 11; i++, timestamp >>= 4)
             {
                 var c = timestamp & 0x0F;
@@ -133,8 +136,14 @@ internal class ConsoleId : IEquatable<ConsoleId>
     }
 
     /// <inheritdoc />
-    public override bool Equals(object? obj) => Equals(obj as ConsoleId);
+    public override bool Equals(object? obj)
+    {
+        return Equals(obj as ConsoleId);
+    }
 
     /// <inheritdoc />
-    public override int GetHashCode() => (JobId.GetHashCode() * 17) ^ Timestamp.GetHashCode();
+    public override int GetHashCode()
+    {
+        return (JobId.GetHashCode() * 17) ^ Timestamp.GetHashCode();
+    }
 }

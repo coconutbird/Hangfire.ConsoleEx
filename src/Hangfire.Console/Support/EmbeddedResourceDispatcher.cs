@@ -45,7 +45,8 @@ internal class EmbeddedResourceDispatcher : IDashboardDispatcher
         else if (contentType != _contentType)
         {
             // content type already set, but doesn't match ours
-            throw new InvalidOperationException($"ContentType '{_contentType}' conflicts with '{context.Response.ContentType}'");
+            throw new InvalidOperationException(
+                $"ContentType '{_contentType}' conflicts with '{context.Response.ContentType}'");
         }
 
         return WriteResourceAsync(context.Response, _assembly, _resourceName);

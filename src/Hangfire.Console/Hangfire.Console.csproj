@@ -21,7 +21,7 @@
             • Calling UseConsole more than once will no longer throw
             • Fixed number formatting/parsing bug causing console to poll forever
             • Added digits argument to progress bar, defaulting to 0 decimal digits
-                - This prevents huge amounts of progress bar updates with fractional digit changes
+            - This prevents huge amounts of progress bar updates with fractional digit changes
 
             v1.4.2:
             • Added StringFormatMethod attributes on WriteLine methods (for better intellisense)
@@ -123,8 +123,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../hangfire.console.png" Pack="true" PackagePath="/" Visible="false" />
-        <None Include="../../README.md" Pack="true" PackagePath="/" Visible="false" />
+        <None Include="../../hangfire.console.png" Pack="true" PackagePath="/" Visible="false"/>
+        <None Include="../../README.md" Pack="true" PackagePath="/" Visible="false"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -133,7 +133,7 @@
 
     <ItemGroup>
         <PackageReference Include="Hangfire.Core" Version="1.8.5"/>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" PrivateAssets="All" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" PrivateAssets="All"/>
         <PackageReference Include="PolySharp" Version="1.13.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

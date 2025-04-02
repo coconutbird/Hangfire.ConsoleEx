@@ -96,10 +96,16 @@ public class ConsoleTextColor
     }
 
     /// <inheritdoc />
-    public override string ToString() => _color;
+    public override string ToString()
+    {
+        return _color;
+    }
 
     /// <summary>
     ///     Implicitly converts <see cref="ConsoleTextColor" /> to <see cref="string" />.
     /// </summary>
-    public static implicit operator string?(ConsoleTextColor? color) => color?._color;
+    public static implicit operator string?(ConsoleTextColor? color)
+    {
+        return color?._color;
+    }
 }

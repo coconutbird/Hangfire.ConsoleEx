@@ -1,5 +1,7 @@
 ﻿using System;
+
 using Hangfire.Console.Monitoring;
+
 using JetBrains.Annotations;
 
 namespace Hangfire.Console;
