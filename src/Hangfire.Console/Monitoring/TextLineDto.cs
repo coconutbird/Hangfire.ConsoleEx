@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 namespace Hangfire.Console.Monitoring;
 
 /// <summary>
-///     Text console line
+/// Text console line
 /// </summary>
 [PublicAPI]
 public class TextLineDto : LineDto
@@ -21,7 +21,7 @@ public class TextLineDto : LineDto
     public override LineType Type => LineType.Text;
 
     /// <summary>
-    ///     Returns text for the console line
+    /// Returns text for the console line
     /// </summary>
     public string Text { get; }
 }

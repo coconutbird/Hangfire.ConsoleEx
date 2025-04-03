@@ -7,13 +7,13 @@ using Hangfire.Storage.Monitoring;
 namespace Hangfire.Console.Monitoring;
 
 /// <summary>
-///     Console monitoring API interface
+/// Console monitoring API interface
 /// </summary>
 [PublicAPI]
 public interface IConsoleApi : IDisposable
 {
     /// <summary>
-    ///     Returns lines for the console session
+    /// Returns lines for the console session
     /// </summary>
     /// <param name="jobId">Job identifier</param>
     /// <param name="timestamp">Time the processing was started (like, <seealso cref="StateHistoryDto.CreatedAt" />)</param>

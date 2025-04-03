@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Hangfire.Dashboard.Extensions;
 
 /// <summary>
-///     Alternative to built-in EmbeddedResourceDispatcher, which (for some reasons) is not public.
+/// Alternative to built-in EmbeddedResourceDispatcher, which (for some reasons) is not public.
 /// </summary>
 internal class EmbeddedResourceDispatcher : IDashboardDispatcher
 {

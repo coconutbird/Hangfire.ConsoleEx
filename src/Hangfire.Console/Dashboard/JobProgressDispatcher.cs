@@ -15,7 +15,7 @@ using Newtonsoft.Json.Serialization;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Provides progress for jobs.
+/// Provides progress for jobs.
 /// </summary>
 internal class JobProgressDispatcher : IDashboardDispatcher
 {

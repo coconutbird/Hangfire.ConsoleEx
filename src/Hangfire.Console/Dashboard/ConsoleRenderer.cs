@@ -13,8 +13,8 @@ using Hangfire.States;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Helper methods to render console shared between
-///     <see cref="ProcessingStateRenderer" /> and <see cref="ConsoleDispatcher" />.
+/// Helper methods to render console shared between
+/// <see cref="ProcessingStateRenderer" /> and <see cref="ConsoleDispatcher" />.
 /// </summary>
 internal static class ConsoleRenderer
 {
@@ -29,7 +29,7 @@ internal static class ConsoleRenderer
         RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
     /// <summary>
-    ///     Renders text string (with possible hyperlinks) into buffer
+    /// Renders text string (with possible hyperlinks) into buffer
     /// </summary>
     /// <param name="buffer">Buffer</param>
     /// <param name="text">Text to render</param>
@@ -74,7 +74,7 @@ internal static class ConsoleRenderer
     }
 
     /// <summary>
-    ///     Renders a single <see cref="ConsoleLine" /> to a buffer.
+    /// Renders a single <see cref="ConsoleLine" /> to a buffer.
     /// </summary>
     /// <param name="builder">Buffer</param>
     /// <param name="line">Line</param>
@@ -123,7 +123,7 @@ internal static class ConsoleRenderer
     }
 
     /// <summary>
-    ///     Renders a collection of <seealso cref="ConsoleLine" /> to a buffer.
+    /// Renders a collection of <seealso cref="ConsoleLine" /> to a buffer.
     /// </summary>
     /// <param name="builder">Buffer</param>
     /// <param name="lines">Lines</param>
@@ -147,7 +147,7 @@ internal static class ConsoleRenderer
     }
 
     /// <summary>
-    ///     Fetches and renders console line buffer.
+    /// Fetches and renders console line buffer.
     /// </summary>
     /// <param name="builder">Buffer</param>
     /// <param name="storage">Console data accessor</param>
@@ -178,14 +178,14 @@ internal static class ConsoleRenderer
     }
 
     /// <summary>
-    ///     Fetches console lines from storage.
+    /// Fetches console lines from storage.
     /// </summary>
     /// <param name="storage">Console data accessor</param>
     /// <param name="consoleId">Console identifier</param>
     /// <param name="start">Offset to read lines from</param>
     /// <remarks>
-    ///     On completion, <paramref name="start" /> is set to the end of the current batch,
-    ///     and can be used for next requests (or set to -1, if the job has finished processing).
+    /// On completion, <paramref name="start" /> is set to the end of the current batch,
+    /// and can be used for next requests (or set to -1, if the job has finished processing).
     /// </remarks>
     private static IEnumerable<ConsoleLine>? ReadLines(IConsoleStorage storage, ConsoleId consoleId, ref int start)
     {

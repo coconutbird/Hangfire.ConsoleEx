@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 namespace Hangfire.Console.Monitoring;
 
 /// <summary>
-///     Progress bar line
+/// Progress bar line
 /// </summary>
 [PublicAPI]
 public class ProgressBarDto : LineDto
@@ -24,17 +24,17 @@ public class ProgressBarDto : LineDto
     public override LineType Type => LineType.ProgressBar;
 
     /// <summary>
-    ///     Returns identifier for a progress bar
+    /// Returns identifier for a progress bar
     /// </summary>
     public int Id { get; }
 
     /// <summary>
-    ///     Returns optional name for a progress bar
+    /// Returns optional name for a progress bar
     /// </summary>
     public string? Name { get; }
 
     /// <summary>
-    ///     Returns progress value for a progress bar
+    /// Returns progress value for a progress bar
     /// </summary>
     public double Progress { get; internal set; }
 }

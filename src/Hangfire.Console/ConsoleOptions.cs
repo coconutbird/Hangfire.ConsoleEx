@@ -5,39 +5,39 @@ using JetBrains.Annotations;
 namespace Hangfire.Console;
 
 /// <summary>
-///     Configuration options for console.
+/// Configuration options for console.
 /// </summary>
 [PublicAPI]
 public class ConsoleOptions
 {
     /// <summary>
-    ///     Gets or sets expiration time for console messages.
+    /// Gets or sets expiration time for console messages.
     /// </summary>
     public TimeSpan ExpireIn { get; set; } = TimeSpan.FromDays(1);
 
     /// <summary>
-    ///     Gets or sets if console messages should follow the same retention policy as the parent job.
-    ///     When set to <c>true</c>, <see cref="ExpireIn" /> parameter is ignored.
+    /// Gets or sets if console messages should follow the same retention policy as the parent job.
+    /// When set to <c>true</c>, <see cref="ExpireIn" /> parameter is ignored.
     /// </summary>
     public bool FollowJobRetentionPolicy { get; set; } = true;
 
     /// <summary>
-    ///     Gets or sets console poll interval (in ms).
+    /// Gets or sets console poll interval (in ms).
     /// </summary>
     public int PollInterval { get; set; } = 1000;
 
     /// <summary>
-    ///     Gets or sets background color for console.
+    /// Gets or sets background color for console.
     /// </summary>
     public string BackgroundColor { get; set; } = "#0d3163";
 
     /// <summary>
-    ///     Gets or sets text color for console.
+    /// Gets or sets text color for console.
     /// </summary>
     public string TextColor { get; set; } = "#ffffff";
 
     /// <summary>
-    ///     Gets or sets timestamp color for console.
+    /// Gets or sets timestamp color for console.
     /// </summary>
     public string TimestampColor { get; set; } = "#00aad7";
 

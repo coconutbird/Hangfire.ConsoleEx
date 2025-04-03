@@ -7,18 +7,18 @@ using Hangfire.Storage;
 namespace Hangfire.Console.Storage;
 
 /// <summary>
-///     Abstraction over Hangfire's storage API
+/// Abstraction over Hangfire's storage API
 /// </summary>
 internal interface IConsoleStorage : IDisposable
 {
     /// <summary>
-    ///     Returns number of lines for console.
+    /// Returns number of lines for console.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     int GetLineCount(ConsoleId consoleId);
 
     /// <summary>
-    ///     Returns range of lines for console.
+    /// Returns range of lines for console.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     /// <param name="start">Start index (inclusive)</param>
@@ -26,34 +26,34 @@ internal interface IConsoleStorage : IDisposable
     IEnumerable<ConsoleLine> GetLines(ConsoleId consoleId, int start, int end);
 
     /// <summary>
-    ///     Initializes console.
+    /// Initializes console.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     void InitConsole(ConsoleId consoleId);
 
     /// <summary>
-    ///     Adds line to console.
+    /// Adds line to console.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     /// <param name="line">Line to add</param>
     void AddLine(ConsoleId consoleId, ConsoleLine line);
 
     /// <summary>
-    ///     Returns current expiration TTL for console.
-    ///     If console is not expired, returns negative <see cref="TimeSpan" />.
+    /// Returns current expiration TTL for console.
+    /// If console is not expired, returns negative <see cref="TimeSpan" />.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     TimeSpan GetConsoleTtl(ConsoleId consoleId);
 
     /// <summary>
-    ///     Expire data for console.
+    /// Expire data for console.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     /// <param name="expireIn">Expiration time</param>
     void Expire(ConsoleId consoleId, TimeSpan expireIn);
 
     /// <summary>
-    ///     Returns last (current) state of the console's parent job.
+    /// Returns last (current) state of the console's parent job.
     /// </summary>
     /// <param name="consoleId">Console identifier</param>
     StateData? GetState(ConsoleId consoleId);

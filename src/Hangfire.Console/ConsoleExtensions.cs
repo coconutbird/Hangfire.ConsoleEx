@@ -9,13 +9,13 @@ using JetBrains.Annotations;
 namespace Hangfire.Console;
 
 /// <summary>
-///     Provides extension methods for writing to console.
+/// Provides extension methods for writing to console.
 /// </summary>
 [PublicAPI]
 public static class ConsoleExtensions
 {
     /// <summary>
-    ///     Sets text color for next console lines.
+    /// Sets text color for next console lines.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color to use</param>
@@ -37,7 +37,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Resets text color for next console lines.
+    /// Resets text color for next console lines.
     /// </summary>
     /// <param name="context">Context</param>
     public static void ResetTextColor(this PerformContext context)
@@ -53,7 +53,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds an updateable progress bar to console.
+    /// Adds an updateable progress bar to console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="value">Initial value</param>
@@ -70,7 +70,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds an updateable named progress bar to console.
+    /// Adds an updateable named progress bar to console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="name">Name</param>
@@ -89,7 +89,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a string to console.
+    /// Adds a string to console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="value">String</param>
@@ -99,7 +99,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a string to console.
+    /// Adds a string to console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>
@@ -110,7 +110,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds an empty line to console.
+    /// Adds an empty line to console.
     /// </summary>
     /// <param name="context">Context</param>
     public static void WriteLine(this PerformContext context)
@@ -119,7 +119,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a value to a console.
+    /// Adds a value to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="value">Value</param>
@@ -129,7 +129,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="format">Format string</param>
@@ -141,7 +141,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="format">Format string</param>
@@ -154,7 +154,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="format">Format string</param>
@@ -168,7 +168,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="format">Format string</param>
@@ -180,7 +180,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a value to a console.
+    /// Adds a value to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>
@@ -191,7 +191,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>
@@ -204,7 +204,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>
@@ -223,7 +223,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>
@@ -244,7 +244,7 @@ public static class ConsoleExtensions
     }
 
     /// <summary>
-    ///     Adds a formatted string to a console.
+    /// Adds a formatted string to a console.
     /// </summary>
     /// <param name="context">Context</param>
     /// <param name="color">Text color</param>

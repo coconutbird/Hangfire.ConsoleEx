@@ -3,7 +3,7 @@
 namespace Hangfire.Console.Serialization;
 
 /// <summary>
-///     Console identifier
+/// Console identifier
 /// </summary>
 internal class ConsoleId : IEquatable<ConsoleId>
 {
@@ -12,7 +12,7 @@ internal class ConsoleId : IEquatable<ConsoleId>
     private string? _cachedString;
 
     /// <summary>
-    ///     Initializes an instance of <see cref="ConsoleId" />
+    /// Initializes an instance of <see cref="ConsoleId" />
     /// </summary>
     /// <param name="jobId">Job identifier</param>
     /// <param name="timestamp">Timestamp</param>
@@ -33,7 +33,7 @@ internal class ConsoleId : IEquatable<ConsoleId>
     }
 
     /// <summary>
-    ///     Initializes an instance of <see cref="ConsoleId" />.
+    /// Initializes an instance of <see cref="ConsoleId" />.
     /// </summary>
     /// <param name="jobId">Job identifier</param>
     /// <param name="timestamp">Timestamp</param>
@@ -44,17 +44,17 @@ internal class ConsoleId : IEquatable<ConsoleId>
     }
 
     /// <summary>
-    ///     Job identifier
+    /// Job identifier
     /// </summary>
     public string JobId { get; }
 
     /// <summary>
-    ///     Timestamp
+    /// Timestamp
     /// </summary>
     public long Timestamp { get; }
 
     /// <summary>
-    ///     <see cref="Timestamp" /> value as <see cref="DateTime" />.
+    /// <see cref="Timestamp" /> value as <see cref="DateTime" />.
     /// </summary>
     public DateTime DateValue => UnixEpoch.AddMilliseconds(Timestamp);
 
@@ -76,7 +76,7 @@ internal class ConsoleId : IEquatable<ConsoleId>
     }
 
     /// <summary>
-    ///     Creates an instance of <see cref="ConsoleId" /> from string representation.
+    /// Creates an instance of <see cref="ConsoleId" /> from string representation.
     /// </summary>
     /// <param name="value">String</param>
     public static ConsoleId Parse(string value)

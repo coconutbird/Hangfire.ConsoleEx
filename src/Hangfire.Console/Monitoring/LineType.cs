@@ -3,23 +3,23 @@
 namespace Hangfire.Console.Monitoring;
 
 /// <summary>
-///     Console line type
+/// Console line type
 /// </summary>
 [PublicAPI]
 public enum LineType
 {
     /// <summary>
-    ///     Any type (only for filtering)
+    /// Any type (only for filtering)
     /// </summary>
     Any,
 
     /// <summary>
-    ///     Textual line
+    /// Textual line
     /// </summary>
     Text,
 
     /// <summary>
-    ///     Progress bar
+    /// Progress bar
     /// </summary>
     ProgressBar
 }

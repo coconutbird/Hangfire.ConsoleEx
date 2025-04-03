@@ -13,13 +13,13 @@ using JetBrains.Annotations;
 namespace Hangfire.Console;
 
 /// <summary>
-///     Provides extension methods to setup Hangfire.Console.
+/// Provides extension methods to setup Hangfire.Console.
 /// </summary>
 [PublicAPI]
 public static class GlobalConfigurationExtensions
 {
     /// <summary>
-    ///     Configures Hangfire to use Console.
+    /// Configures Hangfire to use Console.
     /// </summary>
     /// <param name="configuration">Global configuration</param>
     /// <param name="options">Options for console</param>

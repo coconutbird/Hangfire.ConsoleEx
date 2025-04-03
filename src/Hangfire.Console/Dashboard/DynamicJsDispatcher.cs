@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -7,7 +8,7 @@ using Hangfire.Dashboard;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Dispatcher for configured script
+/// Dispatcher for configured script
 /// </summary>
 internal class DynamicJsDispatcher : IDashboardDispatcher
 {
@@ -24,7 +25,6 @@ internal class DynamicJsDispatcher : IDashboardDispatcher
 
         builder.Append("(function (hangfire) {")
                .Append("hangfire.config = hangfire.config || {};")
-               .AppendFormat("hangfire.config.consolePollInterval = {0};", _options.PollInterval)
                .AppendFormat("hangfire.config.consolePollUrl = '{0}/console/';", context.Request.PathBase)
                .Append("})(window.Hangfire = window.Hangfire || {});")
                .AppendLine();

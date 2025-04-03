@@ -5,37 +5,37 @@ namespace Hangfire.Console.Serialization;
 internal class ConsoleLine
 {
     /// <summary>
-    ///     Time offset since console timestamp in fractional seconds
+    /// Time offset since console timestamp in fractional seconds
     /// </summary>
     [JsonProperty("t", Required = Required.Always)]
     public double TimeOffset { get; set; }
 
     /// <summary>
-    ///     True if <see cref="Message" /> is a Hash reference.
+    /// True if <see cref="Message" /> is a Hash reference.
     /// </summary>
     [JsonProperty("r", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public bool IsReference { get; set; }
 
     /// <summary>
-    ///     Message text, or message reference, or progress bar id
+    /// Message text, or message reference, or progress bar id
     /// </summary>
     [JsonProperty("s", Required = Required.Always)]
     public required string Message { get; set; }
 
     /// <summary>
-    ///     Text color for this message
+    /// Text color for this message
     /// </summary>
     [JsonProperty("c", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public string? TextColor { get; set; }
 
     /// <summary>
-    ///     Value update for a progress bar
+    /// Value update for a progress bar
     /// </summary>
     [JsonProperty("p", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public double? ProgressValue { get; set; }
 
     /// <summary>
-    ///     Optional name for a progress bar
+    /// Optional name for a progress bar
     /// </summary>
     [JsonProperty("n", DefaultValueHandling = DefaultValueHandling.Ignore)]
     public string? ProgressName { get; set; }

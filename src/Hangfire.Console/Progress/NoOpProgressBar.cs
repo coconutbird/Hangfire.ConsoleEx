@@ -3,7 +3,7 @@
 namespace Hangfire.Console.Progress;
 
 /// <summary>
-///     No-op progress bar.
+/// No-op progress bar.
 /// </summary>
 internal class NoOpProgressBar : IProgressBar
 {

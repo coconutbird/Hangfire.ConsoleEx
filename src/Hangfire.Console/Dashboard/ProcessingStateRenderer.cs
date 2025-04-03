@@ -11,7 +11,7 @@ using Hangfire.Dashboard.Extensions;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Replacement renderer for Processing state.
+/// Replacement renderer for Processing state.
 /// </summary>
 internal class ProcessingStateRenderer
 {

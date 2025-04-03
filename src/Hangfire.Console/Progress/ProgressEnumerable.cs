@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Hangfire.Console.Progress;
 
 /// <summary>
-///     Non-generic version of <see cref="IEnumerable" /> wrapper.
+/// Non-generic version of <see cref="IEnumerable" /> wrapper.
 /// </summary>
 internal class ProgressEnumerable : IEnumerable
 {
@@ -91,7 +91,7 @@ internal class ProgressEnumerable : IEnumerable
 }
 
 /// <summary>
-///     Generic version of <see cref="IEnumerable{T}" /> wrapper.
+/// Generic version of <see cref="IEnumerable{T}" /> wrapper.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 internal class ProgressEnumerable<T> : IEnumerable<T>

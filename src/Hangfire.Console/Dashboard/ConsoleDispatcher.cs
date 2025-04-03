@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ using Hangfire.Dashboard;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Provides incremental updates for a console.
+/// Provides incremental updates for a console.
 /// </summary>
 internal class ConsoleDispatcher : IDashboardDispatcher
 {

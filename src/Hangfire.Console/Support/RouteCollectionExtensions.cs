@@ -7,7 +7,7 @@ using System.Reflection;
 namespace Hangfire.Dashboard.Extensions;
 
 /// <summary>
-///     Provides extension methods for <see cref="RouteCollection" />.
+/// Provides extension methods for <see cref="RouteCollection" />.
 /// </summary>
 internal static class RouteCollectionExtensions
 {
@@ -16,7 +16,7 @@ internal static class RouteCollectionExtensions
         typeof(RouteCollection).GetTypeInfo().GetDeclaredField(nameof(_dispatchers));
 
     /// <summary>
-    ///     Checks if there's a dispatcher registered for given <paramref name="pathTemplate" />.
+    /// Checks if there's a dispatcher registered for given <paramref name="pathTemplate" />.
     /// </summary>
     /// <param name="routes">Route collection</param>
     /// <param name="pathTemplate">Path template</param>
@@ -36,8 +36,8 @@ internal static class RouteCollectionExtensions
     }
 
     /// <summary>
-    ///     Combines exising dispatcher for <paramref name="pathTemplate" /> with <paramref name="dispatcher" />.
-    ///     If there's no dispatcher for the specified path, adds a new one.
+    /// Combines exising dispatcher for <paramref name="pathTemplate" /> with <paramref name="dispatcher" />.
+    /// If there's no dispatcher for the specified path, adds a new one.
     /// </summary>
     /// <param name="routes">Route collection</param>
     /// <param name="pathTemplate">Path template</param>
@@ -84,8 +84,8 @@ internal static class RouteCollectionExtensions
     }
 
     /// <summary>
-    ///     Replaces exising dispatcher for <paramref name="pathTemplate" /> with <paramref name="dispatcher" />.
-    ///     If there's no dispatcher for the specified path, adds a new one.
+    /// Replaces exising dispatcher for <paramref name="pathTemplate" /> with <paramref name="dispatcher" />.
+    /// If there's no dispatcher for the specified path, adds a new one.
     /// </summary>
     /// <param name="routes">Route collection</param>
     /// <param name="pathTemplate">Path template</param>
@@ -125,7 +125,7 @@ internal static class RouteCollectionExtensions
     }
 
     /// <summary>
-    ///     Removes dispatcher for <paramref name="pathTemplate" />.
+    /// Removes dispatcher for <paramref name="pathTemplate" />.
     /// </summary>
     /// <param name="routes">Route collection</param>
     /// <param name="pathTemplate">Path template</param>
@@ -157,7 +157,7 @@ internal static class RouteCollectionExtensions
     }
 
     /// <summary>
-    ///     Returns a private list of registered routes.
+    /// Returns a private list of registered routes.
     /// </summary>
     /// <param name="routes">Route collection</param>
     private static List<Tuple<string, IDashboardDispatcher>> GetDispatchers(this RouteCollection routes)

@@ -9,7 +9,7 @@ using Hangfire.States;
 namespace Hangfire.Console.Server;
 
 /// <summary>
-///     Server filter to initialize and cleanup console environment.
+/// Server filter to initialize and cleanup console environment.
 /// </summary>
 internal class ConsoleServerFilter : IServerFilter
 {

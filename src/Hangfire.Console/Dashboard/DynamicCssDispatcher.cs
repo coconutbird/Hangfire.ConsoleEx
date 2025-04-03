@@ -7,7 +7,7 @@ using Hangfire.Dashboard;
 namespace Hangfire.Console.Dashboard;
 
 /// <summary>
-///     Dispatcher for configured styles
+/// Dispatcher for configured styles
 /// </summary>
 internal class DynamicCssDispatcher : IDashboardDispatcher
 {

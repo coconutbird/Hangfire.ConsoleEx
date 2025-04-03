@@ -10,13 +10,13 @@ using JetBrains.Annotations;
 namespace Hangfire.Console;
 
 /// <summary>
-///     Provides a set of extension methods to enumerate collections with progress.
+/// Provides a set of extension methods to enumerate collections with progress.
 /// </summary>
 [PublicAPI]
 public static class EnumerableExtensions
 {
     /// <summary>
-    ///     Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
+    /// Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
     /// </summary>
     /// <typeparam name="T">Item type</typeparam>
     /// <param name="enumerable">Source enumerable</param>
@@ -44,7 +44,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    ///     Returns an <see cref="IEnumerable" /> reporting enumeration progress.
+    /// Returns an <see cref="IEnumerable" /> reporting enumeration progress.
     /// </summary>
     /// <param name="enumerable">Source enumerable</param>
     /// <param name="progressBar">Progress bar</param>
@@ -64,7 +64,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    ///     Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
+    /// Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
     /// </summary>
     /// <typeparam name="T">Item type</typeparam>
     /// <param name="enumerable">Source enumerable</param>
@@ -83,7 +83,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    ///     Returns ab <see cref="IEnumerable" /> reporting enumeration progress.
+    /// Returns ab <see cref="IEnumerable" /> reporting enumeration progress.
     /// </summary>
     /// <param name="enumerable">Source enumerable</param>
     /// <param name="context">Perform context</param>
@@ -101,7 +101,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    ///     Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
+    /// Returns an <see cref="IEnumerable{T}" /> reporting enumeration progress.
     /// </summary>
     /// <typeparam name="T">Item type</typeparam>
     /// <param name="enumerable">Source enumerable</param>
@@ -122,7 +122,7 @@ public static class EnumerableExtensions
     }
 
     /// <summary>
-    ///     Returns ab <see cref="IEnumerable" /> reporting enumeration progress.
+    /// Returns ab <see cref="IEnumerable" /> reporting enumeration progress.
     /// </summary>
     /// <param name="enumerable">Source enumerable</param>
     /// <param name="context">Perform context</param>

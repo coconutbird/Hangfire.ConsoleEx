@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace Hangfire.Dashboard.Extensions;
 
 /// <summary>
-///     Dispatcher that combines output from several other dispatchers.
-///     Used internally by <see cref="RouteCollectionExtensions.Append" />.
+/// Dispatcher that combines output from several other dispatchers.
+/// Used internally by <see cref="RouteCollectionExtensions.Append" />.
 /// </summary>
 internal class CompositeDispatcher : IDashboardDispatcher
 {

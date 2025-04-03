@@ -7,20 +7,15 @@ using Hangfire.Console.Server;
 namespace Hangfire.Console.Progress;
 
 /// <summary>
-///     Default progress bar.
+/// Default progress bar.
 /// </summary>
 internal class DefaultProgressBar : IProgressBar
 {
     private readonly ConsoleContext _context;
-
     private readonly int _digits;
-
     private readonly string _progressBarId;
-
     private string? _color;
-
     private string? _name;
-
     private double _value;
 
     internal DefaultProgressBar(ConsoleContext context, string progressBarId, string? name, string? color, int digits)
