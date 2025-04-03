@@ -26,7 +26,8 @@ internal class ConsoleDispatcher : IDashboardDispatcher
         var startArg = context.Request.GetQuery("start");
 
         // try to parse offset at which we should start returning requests
-        if (string.IsNullOrEmpty(startArg) || !int.TryParse(startArg, out var start))
+        if (string.IsNullOrEmpty(startArg)
+            || !int.TryParse(startArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out var start))
         {
             // if not provided or invalid, fetch records from the very start
             start = 0;
